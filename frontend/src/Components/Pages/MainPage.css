@@ -1,0 +1,26 @@
+.MainPage
+{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: repeat(10, 60px);
+    /* margin: 30px; */
+    
+    justify-content: center;
+
+    /* background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white; */
+}
+/*https://caddyspoon.github.io/posts/2022/10/1003_react_style/*/
+
+.items:nth-child(2n+1) {
+    background-color: #bbb;
+}
+
+.items:nth-child(2n) {
+    background-color: #eee;
+}
