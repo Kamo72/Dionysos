@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import Headline from './Components/Headline.js'
-import Footer from './Components/Footer.js'
-import MainPage from './Components/Pages/MainPage.js'
+import Headline from './Modules/Headline.js'
+import Footer from './Modules/Footer.js'
+import MainPage from './Modules/Pages/MainPage.js'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Detail from "./routes/Detail";
