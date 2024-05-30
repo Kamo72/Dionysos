@@ -5,44 +5,48 @@ class Card extends React.Component
 {
     state = 
     {
-        size : [0,0],
-        width : 0,
-        height : 0,
-        videoCode : "",
-        image : "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/helldivers-2-review.jpg",
-        name : "hello"
+        size : [this.props.width, this.props.height],
+        videoCode : this.props.videoCode,
+        thumbImg : "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/helldivers-2-review.jpg",
+        channelImg : "https://i.pinimg.com/564x/d5/b0/4c/d5b04cc3dcd8c17702549ebc5f1acf1a.jpg",
+        name : "asdsasdasdsadsadssssssssssssssssssssssssasdasdasdsassssadsada"
     }
+
 
     constructor(props)
     {
         super(props)
-        this.setState({size : [props.width, props.height]})
-        console.log(props.width);
-        this.setState({width : props.width})
-        this.setState({height : props.height})
-        this.setState(current => ({videoCode : props.videoCode}))
-    }
+        console.log(this.state.size);
 
+    }
 
     render()
     {
-        console.log(this.state.size);
-        console.log(this.state.width);
-        console.log(this.state.height);
-        return(<div className="items">
-            <img className = "Thumbnail"
+        const {videoCode, width, height} = this.props;
+
+        return(
+        <div className="Thumbnail">
+
+            <img className = "ThumbnailImage rounded-corners"
                 style = {{
-                    maxWidth : "44mm"
-                   //maxWidth : this.state.size[0] + "mm",
-                   // maxHeight : this.state.size[1]
+                   maxWidth : width - 20 + "px",
+                   maxHeight : height + "px"
                 }}
-                src = {this.state.image}
+                src = {this.state.thumbImg}
             ></img>
-            {this.state.name}
+
+            <div className = "ThumbnailContents">
+
+                <img className = "ChannelIcon"
+                    src = {this.state.channelImg}
+                ></img>
+
+                <p className = "ThumbnailTitle">{this.state.name}</p>
+                <p className = "ThumbnailDetail">hello</p>
+
+            </div>
         </div>)
     }
-
-
 }
 
 export default Card;

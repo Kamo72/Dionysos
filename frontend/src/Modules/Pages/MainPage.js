@@ -32,6 +32,7 @@ class MainPage extends React.Component
         const thumbWidth = ((window.innerWidth - margin * 2) / columnCount);
         const thumbHeight = Math.floor(thumbWidth * 0.8);
 
+        console.log(thumbWidth);
 		return (<div className='MainPage'
                 style = {{
                     gridTemplateColumns : "repeat(" + columnCount +", " + thumbWidth + "px)",

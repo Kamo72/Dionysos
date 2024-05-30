@@ -1,12 +1,70 @@
 
 
 
-.ThumbnailFrame
-{
-
-}
-
-
 .Thumbnail
 {
+    margin: 10px;
+}
+
+.ThumbnailImage.rounded-corners
+{
+    /* border-radius: 20%; */
+    border-top-left-radius: 10% 20%;
+    border-top-right-radius: 10% 20%;
+    border-bottom-left-radius: 10% 20%;
+    border-bottom-right-radius: 10% 20%;
+}
+
+.ThumbnailContents
+{
+    margin : 0;
+    display: flex;
+    justify-content: flex-start;
+    white-space: wrap;
+}
+
+.ChannelIcon
+{
+    border-radius: 50%;
+    max-width : 12%;
+    max-height : 12%;
+    padding : 2%;
+    left: -5%;
+}
+
+.ThumbnailTitle
+{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size :18px;
+    max-width : 90%;
+    color: #ffffff;
+    
+    margin: 0;
+    text-align: left;
+
+    min-width : 70%;
+    max-width : 70%;
+    max-height : 12%;
+    top : -5%;
+}
+
+.ThumbnailDetail
+{
+    display:block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size :10px;
+    color: #cbcbcb;
+
+    margin: 0;
+    text-align: left;
+
+    min-width : 70%;
+    max-width : 70%;
+    max-height : 12%;
+    top : -5%;
 }
