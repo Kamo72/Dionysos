@@ -1,0 +1,58 @@
+
+.Searcher
+{
+    display: flex;
+    height : 40px;
+    width : 400px;
+}
+
+.TextBox
+{
+    border-top-left-radius: 6% 50%;
+    border-bottom-left-radius: 6% 50%;
+    height : 40px;
+    width : 80%;
+
+    margin : 0;
+
+    border-width: 0;
+    padding : 0;
+
+    outline-style :outset;
+    outline-color: #666666;
+    outline-offset:  -2pt;
+    outline-width:  2pt;
+
+    text-indent : 10px;
+    font-size : 20px;
+    color: #ffffff;
+
+    background-color: #34343f;
+}
+
+.ConfirmBtn
+{
+    border-top-right-radius: 20% 50%;
+    border-bottom-right-radius: 20% 50%;
+    height : 100%;
+    width : 20%;
+
+    margin : 0;
+
+    outline-style :outset;
+    outline-color: #666666;
+    outline-offset:  -2pt;
+    outline-width:  2pt;
+
+    font-size : 20px;
+    color: #ffffff;
+
+    background-color: #34343f;
+}
+
+
+.ConfirmIcon
+{
+    height: 100%;
+    filter: invert();
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import "./Card.css"
 
+import { BrowserRouter as Link } from 'react-router-dom';
+
 class Card extends React.Component
 {
     state = 
@@ -10,14 +12,14 @@ class Card extends React.Component
         thumbImg : "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/helldivers-2-review.jpg",
         channelImg : "https://i.pinimg.com/564x/d5/b0/4c/d5b04cc3dcd8c17702549ebc5f1acf1a.jpg",
         name : "asdsasdasdsadsadssssssssssssssssssssssssasdasdasdsassssadsada"
+
+
     }
 
 
     constructor(props)
     {
         super(props)
-        console.log(this.state.size);
-
     }
 
     render()
@@ -25,12 +27,14 @@ class Card extends React.Component
         const {videoCode, width, height} = this.props;
 
         return(
-        <div className="Thumbnail">
+        <a className="Thumbnail"
+            href = {videoCode}>
 
-            <img className = "ThumbnailImage rounded-corners"
+            <img className = "ThumbnailImage"
                 style = {{
                    maxWidth : width - 20 + "px",
-                   maxHeight : height + "px"
+                   maxHeight : height + "px",
+                   
                 }}
                 src = {this.state.thumbImg}
             ></img>
@@ -41,11 +45,14 @@ class Card extends React.Component
                     src = {this.state.channelImg}
                 ></img>
 
-                <p className = "ThumbnailTitle">{this.state.name}</p>
-                <p className = "ThumbnailDetail">hello</p>
+                <div className = "ThumbnailDescript">
+                    <p className = "ThumbnailTitle">{this.state.name}</p>
 
+                    <p className = "ThumbnailDetail">{"헬다이버즈2"}{<br/>} views : {0}</p>
+                </div>
+                
             </div>
-        </div>)
+        </a>)
     }
 }
 
