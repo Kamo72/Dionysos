@@ -1,0 +1,17 @@
+.SideBar {
+    position: absolute;
+    left: -150px;
+    height: 100%;
+    width: 150px;
+    transition: left 0.3s ease-in-out;
+    background-color:rgb(36, 36, 36);
+  }
+
+.SideBar.Open {
+    background-color :rgb(85, 81, 97);
+    left: 0;
+}
+.content.Open {
+    left: 150px;
+}
+

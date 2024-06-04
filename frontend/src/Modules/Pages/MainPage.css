@@ -10,6 +10,8 @@
     outline: #865050;
     outline-width:  2mm;
     outline-style :outset;
+
+    width : 100%
     /* 
     display: flex;
     flex-direction: column;

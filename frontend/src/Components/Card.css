@@ -48,10 +48,9 @@
 .ChannelIcon
 {
     border-radius: 50%;
-    width : 12%;
-    height : 12%;
-    padding : 2%;
-    left: -5%;
+    width : 45px;
+    height : 45px;
+    margin : 2%;
 
     -webkit-user-select: none;
     -khtml-user-select: none;

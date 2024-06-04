@@ -8,7 +8,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
 	@GetMapping("/*")
-	public String Test()
+	public String Main()
+	{
+		return "../static/index";
+	}
+	
+
+	@GetMapping("/search/*")
+	public String Search()
+	{
+		return "../static/index";
+	}
+	
+
+	@GetMapping("/video/*")
+	public String Video()
 	{
 		return "../static/index";
 	}

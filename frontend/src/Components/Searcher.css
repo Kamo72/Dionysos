@@ -18,7 +18,7 @@
     border-width: 0;
     padding : 0;
 
-    outline-style :outset;
+    outline-style : outset;
     outline-color: #666666;
     outline-offset:  -2pt;
     outline-width:  2pt;
@@ -39,7 +39,7 @@
 
     margin : 0;
 
-    outline-style :outset;
+    outline-style : outset;
     outline-color: #666666;
     outline-offset:  -2pt;
     outline-width:  2pt;
