@@ -8,6 +8,7 @@ public class DionysosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DionysosApplication.class, args);
+		
 	}
 
 }

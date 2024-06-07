@@ -1,8 +1,6 @@
 .MainPage
 {
     display: grid;
-    /* grid-template-columns: repeat(4, 200px);
-    grid-template-rows: repeat(10, 60px); */
     
     justify-content: center;
     min-height: 100vh;
@@ -12,11 +10,5 @@
     outline-style :outset;
 
     width : 100%
-    /* 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: calc(10px + 2vmin);
-    color: white; */
 }
 /*https://caddyspoon.github.io/posts/2022/10/1003_react_style/*/

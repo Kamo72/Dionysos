@@ -1,0 +1,15 @@
+.SignInPage
+{
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background: #282c34;
+    outline: #865050;
+    outline-width:  2mm;
+    outline-style :outset;
+    width : 100%;
+
+    display:block;
+
+}
+

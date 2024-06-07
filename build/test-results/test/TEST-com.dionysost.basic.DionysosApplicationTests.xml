@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.dionysost.basic.DionysosApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-05T08:59:40" hostname="카모컴" time="0.553">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.dionysost.basic.DionysosApplicationTests" time="0.553"/>
+  <system-out><![CDATA[17:59:39.072 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.dionysost.basic.DionysosApplicationTests]: DionysosApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:59:39.139 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.dionysost.basic.DionysosApplication for test class com.dionysost.basic.DionysosApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2024-06-05T17:59:39.345+09:00  INFO 25396 --- [Dionysos] [    Test worker] c.d.basic.DionysosApplicationTests       : Starting DionysosApplicationTests using Java 17.0.11 with PID 25396 (started by 강동현 in F:\[STS4 Storage]\Dionysos)
+2024-06-05T17:59:39.346+09:00  INFO 25396 --- [Dionysos] [    Test worker] c.d.basic.DionysosApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+2024-06-05T17:59:39.896+09:00  INFO 25396 --- [Dionysos] [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2024-06-05T17:59:40.037+09:00  WARN 25396 --- [Dionysos] [    Test worker] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-06-05T17:59:40.082+09:00  INFO 25396 --- [Dionysos] [    Test worker] c.d.basic.DionysosApplicationTests       : Started DionysosApplicationTests in 0.85 seconds (process running for 1.765)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

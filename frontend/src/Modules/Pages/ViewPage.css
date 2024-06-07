@@ -1,0 +1,59 @@
+.ViewPage
+{
+    
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: #282c34;
+    outline: #865050;
+    outline-width:  2mm;
+    outline-style :outset;
+    width : 100%
+}
+/*https://caddyspoon.github.io/posts/2022/10/1003_react_style/*/
+
+.VideoZone
+{
+    position: relative;
+    background-color: #141618;
+}
+
+
+
+.Title{
+    height : 20px;
+    color : white;
+    margin : 10px;
+    font-size : 30px;
+}
+
+.Channel{
+    
+    display: flex;
+    
+}
+
+
+.ChannelIcon{
+    width : 50px;
+    height : 50px;
+}
+
+.ChannelDescripts{
+    width : 80%
+}
+
+
+
+.ChannelName{
+    padding-top: 13px;
+    margin : 5px;
+    font-size: 20px;
+    height : 20px;
+    color : white;
+}
+.ChannelSubs{
+    margin : 5px;
+    font-size: 15px;
+    height : 20px;
+    color : lightgray
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import "../Page.css"
 import "./MainPage.css"
 import Card from "../../Components/Card"
 
@@ -38,27 +37,29 @@ class MainPage extends React.Component
                     gridTemplateRows : "repeat(" + 10  +", " + thumbHeight +"px)",
                 }}
             >
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "?" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
         </div>);
 	}
 }

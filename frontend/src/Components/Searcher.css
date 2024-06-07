@@ -1,9 +1,10 @@
 
 .Searcher
 {
-    display: flex;
+    display:flex;
     height : 40px;
-    width : 400px;
+    width : 60vw;
+    max-width: 400px;
 }
 
 .TextBox
@@ -12,6 +13,7 @@
     border-bottom-left-radius: 6% 50%;
     height : 40px;
     width : 80%;
+    max-width: 400px;
 
     margin : 0;
 
@@ -32,10 +34,10 @@
 
 .ConfirmBtn
 {
-    border-top-right-radius: 20% 50%;
-    border-bottom-right-radius: 20% 50%;
+    border-top-right-radius: 30% 50%;
+    border-bottom-right-radius: 30% 50%;
     height : 100%;
-    width : 20%;
+    width : 80px;
 
     margin : 0;
 

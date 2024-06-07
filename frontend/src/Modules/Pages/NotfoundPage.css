@@ -1,0 +1,28 @@
+.NotfoundPage
+{
+    text-align: center;
+    align-content: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: #282c34;
+    outline: #865050;
+    outline-width:  2mm;
+    outline-style :outset;
+    width : 100%
+}
+
+.Announce
+{
+    font-size: 60px;
+    color : white;
+
+
+}
+
+.ReturnLink
+{
+    font-size: 40px;
+    color : lightgray;
+
+
+}

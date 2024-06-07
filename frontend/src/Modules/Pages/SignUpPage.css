@@ -1,0 +1,98 @@
+.SignUpPage
+{
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background: #282c34;
+    outline: #865050;
+    outline-width:  2mm;
+    outline-style :outset;
+    width : 100%;
+
+    display:block;
+
+}
+
+.Announce
+{
+    font-size: 60px;
+    color : white;
+}
+
+
+.Interface
+{
+    width: 50%; /* 요소의 너비를 50%로 설정 */
+    margin: 0 auto; /* 좌우 마진을 자동으로 설정하여 정중앙에 위치 */
+    text-align: center; /* 텍스트를 중앙 정렬 */
+
+}
+
+.InputLine
+{
+    width:100%;
+    display: flex;
+    justify-content:center; /* 요소들 사이의 간격을 고르게 배분 */
+    align-items: center;           /* 요소들을 수직으로 중앙에 정렬 */
+
+}
+
+.InputName
+{
+    font-size: 20px;
+    color : white;
+    width : 120px;
+}
+
+.InputBox
+{
+    border-top-left-radius: 6% 50%;
+    border-bottom-left-radius: 6% 50%;
+    border-top-right-radius: 6% 50%;
+    border-bottom-right-radius: 6% 50%;
+    height : 40px;
+    width : 80%;
+    max-width: 400px;
+
+    margin : 0;
+
+    border-width: 0;
+    padding : 0;
+
+    outline-style : outset;
+    outline-color: #666666;
+    outline-offset:  -2pt;
+    outline-width:  2pt;
+
+    text-indent : 10px;
+    font-size : 20px;
+    color: #ffffff;
+
+    background-color: #34343f;
+}
+
+
+.SignupConfirmBtn
+{
+    border-top-right-radius: 20% 50%;
+    border-bottom-right-radius: 20% 50%;
+    border-top-left-radius: 20% 50%;
+    border-bottom-left-radius: 20% 50%;
+    
+    height : 50px;
+
+    outline-style : outset;
+    outline-color: #666666;
+    outline-offset:  -2pt;
+    outline-width:  2pt;
+
+    font-size : 20px;
+    color: #ffffff;
+
+    background-color: #34343f;
+
+    margin: 0 auto; /* 좌우 마진을 자동으로 설정하여 정중앙에 위치 */
+    display: flex;
+    justify-content:center; /* 요소들 사이의 간격을 고르게 배분 */
+    align-items: center;           /* 요소들을 수직으로 중앙에 정렬 */
+}

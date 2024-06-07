@@ -32,13 +32,15 @@ class SideBarUnit extends React.Component
         return (<div
             onMouseEnter={ ()=>{ this.setState({ mouseOn : true}) }}
             onMouseLeave={ ()=>{ this.setState({ mouseOn : false}) }}
+            onClick={()=>{ window.location.replace(`${window.location.origin}/${this.props.direction}`) }}
             style={{
                 display: "flex",
-                width: "100%",
+                width: "94%",
                 height : "25px",
-                margin : "2px",
+                margin : "3%",
                 alignItems : "center",
                 margin : "5px",
+                backgroundColor: this.state.mouseOn? "rgb(120, 120, 120)" :  "rgb(70, 70, 70)",
             }}>
             <img style={{
                     margin : "5px",
@@ -49,7 +51,6 @@ class SideBarUnit extends React.Component
             <p style={{
                     color : "white",
                 }}
-                onClick={()=>{ window.location.replace(`${window.location.origin}/${this.props.direction}`) }}
             >{this.props.name}</p>
         </div>)
     }

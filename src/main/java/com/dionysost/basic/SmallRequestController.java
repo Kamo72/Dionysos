@@ -5,20 +5,32 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.ResourceRegion;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRange;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.MediaTypeFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping("/api")
 public class SmallRequestController {
 
+	String URL = "F:\\[STS4 Storage]\\Dionysos\\DataFiles";
+	
 	@GetMapping(
 			  value = "/chImg/{id}",
 			  produces = MediaType.IMAGE_JPEG_VALUE
@@ -26,7 +38,7 @@ public class SmallRequestController {
     public @ResponseBody byte[] GetChannelImage(@PathVariable("id") String id) throws IOException
     {
 		byte[] data = new byte[0];
-	    String inputFile = "F:\\[STS4 Storage]\\Dionysos\\DataFiles\\chImg\\" + id + ".png";
+	    String inputFile = URL + "\\chImg\\" + id + ".png";
 	    try {
 	        InputStream inputStream = new FileInputStream(inputFile);
 	        long fileSize = new File(inputFile).length();
@@ -46,7 +58,7 @@ public class SmallRequestController {
     public @ResponseBody byte[] GetVideoImage(@PathVariable("id") String id) throws IOException
     {
 		byte[] data = new byte[0];
-	    String inputFile = "F:\\[STS4 Storage]\\Dionysos\\DataFiles\\vidImg\\" + id + ".png";
+	    String inputFile = URL + "\\vidImg\\" + id + ".png";
 	    try {
 	        InputStream inputStream = new FileInputStream(inputFile);
 	        long fileSize = new File(inputFile).length();
@@ -60,24 +72,38 @@ public class SmallRequestController {
     }
 	
 
-	
-	@GetMapping("/vidfile/{filename}")
-    public ResponseEntity<InputStreamResource> getVideo(@PathVariable String filename) throws FileNotFoundException {
-        File file = new File("F:\\[STS4 Storage]\\Dionysos\\DataFiles\\vidFile\\" + filename);
-        if (!file.exists()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	@RequestMapping(value = "/vidFile/{id}", method = RequestMethod.GET)
+    public ResponseEntity<ResourceRegion> videoRegion(@RequestHeader HttpHeaders headers, @PathVariable("id") String id) throws Exception {
+        String path = URL + "\\vidFile\\"+id+".mp4";
+        Resource resource = new FileSystemResource(path);
+
+        long chunkSize = 1024 * 1024;
+        long contentLength = resource.contentLength();
+
+        ResourceRegion region;
+
+        try {
+            HttpRange httpRange = headers.getRange().stream().findFirst().get();
+            long start = httpRange.getRangeStart(contentLength);
+            long end = httpRange.getRangeEnd(contentLength);
+            long rangeLength = Long.min(chunkSize, end -start + 1);
+
+			/* log.info("start === {} , end == {}", start, end); */
+
+            region = new ResourceRegion(resource, start, rangeLength);
+        } catch (Exception e) {
+            long rangeLength = Long.min(chunkSize, contentLength);
+            region = new ResourceRegion(resource, 0, rangeLength);
         }
 
-        FileInputStream fileInputStream = new FileInputStream(file);
-        InputStreamResource resource = new InputStreamResource(fileInputStream);
+        return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT)
+                .cacheControl(CacheControl.maxAge(10, TimeUnit.MINUTES))
+                .contentType(MediaTypeFactory.getMediaType(resource).orElse(MediaType.APPLICATION_OCTET_STREAM))
+                .header("Accept-Ranges", "bytes")
+                .eTag(path)
+                .body(region);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "video/mp4");
-
-        return ResponseEntity.ok()
-                .headers(headers)
-                .contentLength(file.length())
-                .body(resource);
     }
+
 }
 

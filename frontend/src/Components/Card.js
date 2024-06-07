@@ -1,16 +1,16 @@
 import React from 'react';
 import "./Card.css"
-import ApiLibrary from "../Library.js"
-
+import {ApiLibrary} from "../Library.js"
+import { serverRoot } from '../App.js';
 
 class Card extends React.Component
 {
 
     
     async componentDidMount() {
+        const id = this.props.videoCode;
         const apiLibrary = new ApiLibrary();
-        const data = await apiLibrary.GetThumbData(100);
-        console.log(data);
+        const data = await apiLibrary.GetThumbData(id);
 
         this.setState(current => {return {vidName : data.vidName}});
         this.setState(current => {return {vidImg : data.vidImg}});
@@ -25,7 +25,6 @@ class Card extends React.Component
     state = 
     {
         size : [this.props.width, this.props.height],
-        videoCode : this.props.videoCode,
 
         vidName : "---",
         vidImg : "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/helldivers-2-review.jpg",
@@ -81,20 +80,20 @@ class Card extends React.Component
         }
         return(
         <div className="Thumbnail"
-            onClick={()=>{window.location.replace(`${window.location.origin}/video/${this.props.videoCode}`)}}>
+            onClick={()=>{window.location.replace(`${window.location.origin}/view/${this.props.videoCode}`)}}>
 
             <img className = "ThumbnailImage"
                 style = {{
                    width : width - 20 + "px",
                    height : (width - 20) * 9 / 16 + "px",
                 }}
-                src = {`${window.location.origin}/vidImg/${this.state.vidImg}`}
+                src = {`${serverRoot}/api/vidImg/${this.state.vidImg}`}
             ></img>
 
             <div className = "ThumbnailContents">
 
                 <img className = "ChannelIcon"
-                src = {`${window.location.origin}/chImg/${this.state.chImg}`}
+                src = {`${serverRoot}/api/chImg/${this.state.chImg}`}
                 ></img>
 
                 <div className = "ThumbnailDescript">
