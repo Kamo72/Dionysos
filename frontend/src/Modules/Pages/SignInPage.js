@@ -44,7 +44,6 @@ class SignInPage extends React.Component
         isHighlightButton : false,
         isFocusedButton : false,
 
-        
         isHighlightSignup : false,
     }
 

@@ -3,6 +3,7 @@ package com.dionysost.basic.Video;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -59,6 +60,10 @@ public class VideoService {
     	
     	return video;
     }
+	public void AddViewCount(long id) 
+	{
+		videoRepository.updateVideoViewById(id);
+	}
     
     
     

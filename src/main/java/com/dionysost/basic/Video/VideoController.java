@@ -155,7 +155,6 @@ public class VideoController {
 	@GetMapping("/api/video/random")
 	public String GetVideoRandom() throws JsonProcessingException
 	{
-		System.out.println("/api/video/random");
 		List<Video> videos = videoService.GetRandomVideos();
 		List<Long> videoCodes = new LinkedList<Long>();
 		
@@ -169,5 +168,13 @@ public class VideoController {
         String jsonString = new ObjectMapper().writeValueAsString(jsonObject);
 		System.out.println(jsonString);
 		return jsonString;
+	}
+	
+	@PostMapping("/api/video/viewed/{id}")
+	public String PostVideoViewed(@PathVariable("id") String id) throws JsonProcessingException
+	{
+		System.out.println("return");
+		videoService.AddViewCount(Long.parseLong(id));	
+		return "";
 	}
 }

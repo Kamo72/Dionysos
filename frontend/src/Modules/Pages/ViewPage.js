@@ -12,6 +12,14 @@ function withParams(Component)
 
 class ViewPage extends React.Component
 {
+    UploadFile = () => 
+    {
+        fetch(`${serverRoot}/api/video/viewed/${this.state.videoCode}`, {
+            method: 'POST',
+            body: null
+        })
+    }
+
     constructor(props)
     {
         super(props)
@@ -45,6 +53,8 @@ class ViewPage extends React.Component
         this.setState(current => {return {chSubs : data.chSubs}});
 
         this.setState(current => {return {isLoading : false}});
+
+        this.UploadFile();
     }
 
     state = 

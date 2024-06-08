@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { serverRoot } from '../../App.js'
 import Card from '../../Components/Card.js';
 import "./ChannelPage.css"
+import { ImageInterface } from './UploadPage.js';
 
 
 
@@ -31,12 +32,38 @@ class ChannelPage extends React.Component
         }
         window.addEventListener("resize", handleResize);
         
-
-        const cLib = new CookieLibrary()
-        const userId = cLib.GetCookieUserId();
-        this.setState(current => {return {userId : userId}} )
-        
     }
+
+    PostChImage= async () =>
+    {
+        const postData = {
+            channelId : this.state.channelId,
+            imageUpload : this.state.imageUpload,
+        }
+
+        const response = await(
+            //요청
+            await fetch(serverRoot + "/api/signup", {
+                method: "POST", // 또는 'PUT'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(postData),
+            })
+        );
+
+        response.json().then(error => {
+            console.log(error.message); // 서버에서 전달한 오류 메시지를 throw
+            alert(error.message);
+        });
+
+        if(response.status == 200)
+        {
+            alert("채널 이미지 재설정에 성공했습니다.");
+            window.location.replace(`${window.location.origin}/channel/${this.userId}`)
+        }
+    }
+
     state = {
         userId : null,
         channelId : "",
@@ -45,6 +72,7 @@ class ChannelPage extends React.Component
 
         channelName : "",
         channelImg : null,
+        imageUpload : null,
     };
 
     componentDidMount()
@@ -64,6 +92,11 @@ class ChannelPage extends React.Component
             const list = e.videoCodes;
             this.setState(cur=>{return{videoCodeList : list}})
         })
+
+        
+        const cLib = new CookieLibrary()
+        const userId = cLib.GetCookieUserId();
+        this.setState(current => {return {userId : userId}} )
     }
 
     render(){
@@ -74,6 +107,7 @@ class ChannelPage extends React.Component
         const thumbWidth = ((window.innerWidth - margin * 2) / columnCount);
         const thumbHeight = Math.floor(thumbWidth * 0.8);
 
+        console.log(this.state.userId + " ... " + this.state.channelId)
 		return (<div className='SearchPage'
             >
             <div className='ChannelProfile'>
@@ -85,9 +119,22 @@ class ChannelPage extends React.Component
                     <div className='ProfileContainer'>
                         <p className='ProfileName'>{this.state.channelName}</p>
                     </div>
-                    (this.state.userId == this.state.channelId? <div>
-                        
-                    </div>:<div/>)
+                    {this.state.userId == this.state.channelId? <div 
+                        style={{
+                            width : "500px",
+                            display : "flex",
+                            alignItems : "center",
+                        }}>
+                        <ImageInterface
+                            updater = {v => this.setState(cur=>{return {imageUpload : v}})}
+                            getter = {()=> {return this.state.imageUpload}}
+                        ></ImageInterface>
+                        <button className = "ConfirmButton"
+                            style={{
+                                width : "200px",
+                            }}
+                        >채널 이미지 설정</button>
+                    </div>:<div/>}
                 </div>
             </div>
             <br/>

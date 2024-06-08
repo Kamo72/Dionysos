@@ -122,7 +122,7 @@ class VideoInterface extends React.Component
     }
 }
 
-class ImageInterface extends React.Component
+export class ImageInterface extends React.Component
 {
     GetSrc = () => {
         if(this.props.getter() == null) return null;

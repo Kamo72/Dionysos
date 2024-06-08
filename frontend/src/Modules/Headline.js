@@ -145,7 +145,7 @@ class AccountCard extends React.Component
 							margin : "0",
 						}}
 						onClick={()=>{
-							window.location.replace(`${window.location.origin}/profile/${this.state.userId}`)
+							window.location.replace(`${window.location.origin}/channel/${this.state.userId}`)
 						}}>
 						{this.state.userName}</p>
 					<p style={{

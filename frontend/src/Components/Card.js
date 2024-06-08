@@ -86,7 +86,7 @@ class Card extends React.Component
 
                 <img className = "ChannelIcon"
                     onClick={()=>{
-                        window.location.replace(`${window.location.position}/channel/${this.state.chId}`)
+                        window.location.replace(`${window.location.origin}/channel/${this.state.chId}`)
                     }}
                     src = {this.state.chImg == null?
                         "https://i.pinimg.com/564x/d5/b0/4c/d5b04cc3dcd8c17702549ebc5f1acf1a.jpg": 
@@ -98,7 +98,7 @@ class Card extends React.Component
 
                     <p className = "ThumbnailDetail"
                         onClick={()=>{
-                            window.location.replace(`${window.location.position}/channel/${this.state.chId}`)
+                            window.location.replace(`${window.location.origin}/channel/${this.state.chId}`)
                         }}>
                         {this.state.chName}{<br/>} views : {this.state.views}
                     </p>
