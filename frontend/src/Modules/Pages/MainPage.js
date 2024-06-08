@@ -1,26 +1,35 @@
 import React from 'react';
 import "./MainPage.css"
 import Card from "../../Components/Card"
+import { ApiLibrary } from '../../Library';
 
 class MainPage extends React.Component
 {
     constructor(props)
     {
         super(props)
-
         const handleResize = () => {
             this.setState(
                 current => ({windowSize : [window.innerWidth, window.innerHeight]}) 
             )
         }
         window.addEventListener("resize", handleResize);
-        
     }
 
-
     state = {
-        windowSize : [window.innerWidth, window.innerHeight]
+        windowSize : [window.innerWidth, window.innerHeight],
+        videoCodeList : [],
     };
+
+    componentDidMount()
+    {
+        const aLib = new ApiLibrary();
+        aLib.GetRandomVideos(this.state.keyword).then(e=>{
+            const list = e.videoCodes;
+            console.log(list)
+            this.setState(cur=>{return{videoCodeList : list}})
+        })
+    }
 
 
 	render() 
@@ -37,29 +46,9 @@ class MainPage extends React.Component
                     gridTemplateRows : "repeat(" + 10  +", " + thumbHeight +"px)",
                 }}
             >
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
-            <Card videoCode = "a" width = {thumbWidth} height = {thumbHeight}></Card>
+            {this.state.videoCodeList.map(item => 
+                <Card videoCode = {item} width = {thumbWidth} height = {thumbHeight}></Card>
+            )}
         </div>);
 	}
 }

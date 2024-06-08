@@ -1,0 +1,34 @@
+
+.SearchPage{
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #282c34;
+    outline: #865050;
+    outline-width:  2mm;
+    outline-style :outset;
+
+    width : 100%
+}
+.SearchAnnounce{
+
+    height : 70px;
+    outline-style :none;
+    font-size: 30px;
+    color : white;
+}
+
+.VideoGrid
+{
+    outline-style :none;
+    display: grid;
+    
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #282c34;
+    outline: #865050;
+    outline-width:  2mm;
+    outline-style :outset;
+
+    width : 100%
+
+}

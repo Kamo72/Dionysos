@@ -1,0 +1,49 @@
+.UploadPage{}
+
+
+.UploadThumb{
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    height :80%;
+    outline-style: auto;
+    outline-width: 1px;
+    outline-color: beige;
+
+    margin : 0 auto;
+}
+
+
+.DivFile{
+    aspect-ratio: 160/63;
+    margin : 0 auto;
+    display : flex;
+    width : 60%;
+    align-items: center;
+    color : white;
+
+}
+
+
+
+.ConfirmButton
+{
+    border-top-right-radius: 20% 50%;
+    border-bottom-right-radius: 20% 50%;
+    border-top-left-radius: 20% 50%;
+    border-bottom-left-radius: 20% 50%;
+    height : 100%;
+    width : 200px;
+    height : 50px;
+
+    margin : 0;
+
+    outline-style : outset;
+    outline-color: #666666;
+    outline-offset:  -2pt;
+    outline-width:  2pt;
+
+    font-size : 20px;
+    color: #ffffff;
+
+    background-color: #34343f;
+}

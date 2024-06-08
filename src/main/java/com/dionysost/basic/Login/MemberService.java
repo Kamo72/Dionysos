@@ -44,7 +44,7 @@ public class MemberService {
 
     public Member getLoginUserById(Long userId) {
         if(userId == null) return null;
-
+        
         Optional<Member> optionalUser = memberRepository.findById(userId);
         if(optionalUser.isEmpty()) return null;
 
@@ -59,4 +59,10 @@ public class MemberService {
 
         return optionalUser.get();
     }
+
+	public void updateImage(ChannelImageRequest req) {
+        Member member = req.getMember();
+        member.setImageCode(req.getImageCode());
+        memberRepository.save(member);
+	}
 }

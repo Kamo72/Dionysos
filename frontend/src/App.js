@@ -12,7 +12,6 @@ import MainPage from './Modules/Pages/MainPage.js'
 import SearchPage from './Modules/Pages/SearchPage.js';
 import ChannelPage from './Modules/Pages/ChannelPage.js';
 import UploadPage from './Modules/Pages/UploadPage.js';
-import ProfilePage from './Modules/Pages/ProfilePage.js';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -36,7 +35,6 @@ function App() {
         <SideBar isOpened = {sideBarOpened}></SideBar>
         <Router>
           <Routes>
-            <Route path = "/profile" element={ <ProfilePage className = "App-header"></ProfilePage>}/>
             <Route path = "/signin" element={ <SignInPage className = "App-header"></SignInPage>}/>
             <Route path = "/signup" element={ <SignUpPage className = "App-header"></SignUpPage>}/>
             <Route path = "/upload" element={ <UploadPage className = "App-header"></UploadPage>}/>

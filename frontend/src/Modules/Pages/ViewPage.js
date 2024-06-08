@@ -3,6 +3,7 @@ import {ApiLibrary} from '../../Library';
 import './ViewPage.css'
 import { useParams } from 'react-router-dom';
 import { serverRoot } from '../../App.js'
+import { webRoot } from '../../App.js';
 
 function withParams(Component)
 {
@@ -35,6 +36,7 @@ class ViewPage extends React.Component
 
         this.setState(current => {return {vidName : data.vidName}});
         this.setState(current => {return {vidImg : data.vidImg}});
+        this.setState(current => {return {chId : data.chId}});
         this.setState(current => {return {chName : data.chName}});
         this.setState(current => {return {chImg : data.chImg}});
         this.setState(current => {return {views : data.views}});
@@ -52,6 +54,7 @@ class ViewPage extends React.Component
 
         vidName : "---",
         vidImg : "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/helldivers-2-review.jpg",
+        chId : null,
         chName : "---",
         chImg : "https://i.pinimg.com/564x/d5/b0/4c/d5b04cc3dcd8c17702549ebc5f1acf1a.jpg",
         views : "---",
@@ -97,11 +100,16 @@ class ViewPage extends React.Component
                     style={{
                         backgroundColor : "darkslategray"
                     }}
-                    src={`${serverRoot}/api/chImg/${this.state.chImg}`}
+                    onClick={()=>{ window.location.replace(`${webRoot}/channel/${this.state.chId}`) }}
+                    src={this.state.chImg == null?
+                        "https://i.pinimg.com/564x/d5/b0/4c/d5b04cc3dcd8c17702549ebc5f1acf1a.jpg": 
+                        `${serverRoot}/api/chImg/${this.state.chImg}`}
                 ></img>
 
                 <div className = "ChannelDescripts">
-                    <p className = "ChannelName">{this.state.chName}</p>
+                    <p className = "ChannelName"
+                        onClick={()=>{ window.location.replace(`${webRoot}/channel/${this.state.chId}`) }}
+                    >{this.state.chName}</p>
                     <p className = "ChannelSubs">Subs : {this.state.chSubs}</p>
                 </div>
                 <p className = "ChannelSubs">views : {this.state.views}</p>

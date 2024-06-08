@@ -11,12 +11,14 @@ import jakarta.persistence.ManyToOne;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.AllArgsConstructor;
 
 
 @Entity
 @Builder
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Video {
@@ -24,10 +26,12 @@ public class Video {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String imageCode;
     private String name;
     private long view;
-    private String password;
+    
+    private String videoCode;
+    private String imageCode;
+    
     
     @ManyToOne
     private Member member;

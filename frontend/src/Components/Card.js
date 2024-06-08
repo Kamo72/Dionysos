@@ -5,8 +5,6 @@ import { serverRoot } from '../App.js';
 
 class Card extends React.Component
 {
-
-    
     async componentDidMount() {
         const id = this.props.videoCode;
         const apiLibrary = new ApiLibrary();
@@ -14,6 +12,7 @@ class Card extends React.Component
 
         this.setState(current => {return {vidName : data.vidName}});
         this.setState(current => {return {vidImg : data.vidImg}});
+        this.setState(current => {return {chId : data.chId}});
         this.setState(current => {return {chName : data.chName}});
         this.setState(current => {return {chImg : data.chImg}});
         this.setState(current => {return {views : data.views}});
@@ -21,14 +20,13 @@ class Card extends React.Component
         this.setState(current => {return {isLoading : false}});
     }
 
-
     state = 
     {
         size : [this.props.width, this.props.height],
 
         vidName : "---",
         vidImg : "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/helldivers-2-review.jpg",
-        
+        chId : null,
         chName : "---",
         chImg : "https://i.pinimg.com/564x/d5/b0/4c/d5b04cc3dcd8c17702549ebc5f1acf1a.jpg",
 
@@ -37,17 +35,11 @@ class Card extends React.Component
         isLoading : true,
     }
 
-    
-
-    constructor(props)
-    {
-        super(props)
-    }
-
     render()
     {
         const {videoCode, width, height} = this.props;
 
+        console.log(this.state.chImg);
         if(this.state.isLoading === true)
         {
             return(
@@ -79,10 +71,10 @@ class Card extends React.Component
             </div>)
         }
         return(
-        <div className="Thumbnail"
-            onClick={()=>{window.location.replace(`${window.location.origin}/view/${this.props.videoCode}`)}}>
-
+        <div className="Thumbnail">
+           
             <img className = "ThumbnailImage"
+                onClick={()=>{window.location.replace(`${window.location.origin}/view/${this.props.videoCode}`)}}
                 style = {{
                    width : width - 20 + "px",
                    height : (width - 20) * 9 / 16 + "px",
@@ -93,13 +85,23 @@ class Card extends React.Component
             <div className = "ThumbnailContents">
 
                 <img className = "ChannelIcon"
-                src = {`${serverRoot}/api/chImg/${this.state.chImg}`}
+                    onClick={()=>{
+                        window.location.replace(`${window.location.position}/channel/${this.state.chId}`)
+                    }}
+                    src = {this.state.chImg == null?
+                        "https://i.pinimg.com/564x/d5/b0/4c/d5b04cc3dcd8c17702549ebc5f1acf1a.jpg": 
+                        `${serverRoot}/api/chImg/${this.state.chImg}`}
                 ></img>
 
                 <div className = "ThumbnailDescript">
                     <p className = "ThumbnailTitle">{this.state.vidName}</p>
 
-                    <p className = "ThumbnailDetail">{this.state.chName}{<br/>} views : {this.state.views}</p>
+                    <p className = "ThumbnailDetail"
+                        onClick={()=>{
+                            window.location.replace(`${window.location.position}/channel/${this.state.chId}`)
+                        }}>
+                        {this.state.chName}{<br/>} views : {this.state.views}
+                    </p>
                 </div>
                 
             </div>

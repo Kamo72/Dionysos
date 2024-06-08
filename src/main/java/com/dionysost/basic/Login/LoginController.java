@@ -96,7 +96,6 @@ public class LoginController {
 
         memberService.join(joinRequest);
         
-		System.out.println("/api/signup > " + data);
 		
         return ".";
 	}
