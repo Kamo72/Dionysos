@@ -29,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class VideoController {
 
+	String URL = "S:\\[SpringSTS4]\\Dionysos\\DataFiles";
 	private final VideoService videoService;
 	private final MemberService memberService;
 
@@ -42,12 +43,12 @@ public class VideoController {
 				String nowTimeStr = LocalDateTime.now().format(formatter);
 
 				// 업로드할 디렉토리 경로 설정
-				String videoFileDir = "F:\\[STS4 Storage]\\Dionysos\\DataFiles\\vidFile";
+				String videoFileDir = URL + "\\vidFile";
 				Path videoFilePath = Paths.get(videoFileDir, nowTimeStr + ".mp4");
 				Files.write(videoFilePath, video.getBytes());
 
 				// 업로드할 디렉토리 경로 설정
-				String imageFileDir = "F:\\[STS4 Storage]\\Dionysos\\DataFiles\\vidImg";
+				String imageFileDir = URL + "\\vidImg";
 				Path imageFilePath = Paths.get(imageFileDir, nowTimeStr + ".png");
 				Files.write(imageFilePath, image.getBytes());
 

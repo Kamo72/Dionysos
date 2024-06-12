@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/api")
 public class SmallRequestController {
 
-	String URL = "F:\\[STS4 Storage]\\Dionysos\\DataFiles";
+	String URL = "S:\\[SpringSTS4]\\Dionysos\\DataFiles";
 	
 	@GetMapping(
 			  value = "/chImg/{id}",

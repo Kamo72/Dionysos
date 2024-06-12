@@ -34,7 +34,8 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 @RequiredArgsConstructor
 public class MemberContorller {
-	
+
+	String URL = "S:\\[SpringSTS4]\\Dionysos\\DataFiles";
 	private final MemberService memberService;
 	
 	@GetMapping("/api/channel/basic/{id}")
@@ -69,7 +70,7 @@ public class MemberContorller {
 		        String nowTimeStr = LocalDateTime.now().format(formatter);
 		        
 		        // 업로드할 디렉토리 경로 설정
-		        String imageFileDir = "F:\\[STS4 Storage]\\Dionysos\\DataFiles\\chImg";
+		        String imageFileDir = URL + "\\chImg";
 		        Path imageFilePath = Paths.get(imageFileDir, nowTimeStr + ".png");
 		        Files.write(imageFilePath, image.getBytes());
 		        

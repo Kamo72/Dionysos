@@ -36,19 +36,15 @@ class ChannelPage extends React.Component
 
     PostChImage= async () =>
     {
-        const postData = {
-            channelId : this.state.channelId,
-            imageUpload : this.state.imageUpload,
-        }
+        const formData = new FormData();
+        formData.append("memberId", this.state.channelId)
+        formData.append("image", this.state.imageUpload)
 
         const response = await(
             //요청
-            await fetch(serverRoot + "/api/signup", {
+            await fetch(serverRoot + "/api/channel/image", {
                 method: "POST", // 또는 'PUT'
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(postData),
+                body: formData,
             })
         );
 
@@ -60,7 +56,11 @@ class ChannelPage extends React.Component
         if(response.status == 200)
         {
             alert("채널 이미지 재설정에 성공했습니다.");
-            window.location.replace(`${window.location.origin}/channel/${this.userId}`)
+            window.location.replace(`${window.location.origin}/channel/${this.state.userId}`)
+        }
+        else
+        {
+            alert("채널 이미지 재설정에 실패했습니다.");
         }
     }
 
@@ -83,7 +83,7 @@ class ChannelPage extends React.Component
 
             const img = e.userImg;
             const name = e.userName;
-            this.setState(cur=>{return{userImg : img}})
+            this.setState(cur=>{return{channelImg : img}})
             this.setState(cur=>{return{channelName : name}})
         })
 
@@ -130,6 +130,7 @@ class ChannelPage extends React.Component
                             getter = {()=> {return this.state.imageUpload}}
                         ></ImageInterface>
                         <button className = "ConfirmButton"
+                            onClick={() => this.PostChImage()}
                             style={{
                                 width : "200px",
                             }}
