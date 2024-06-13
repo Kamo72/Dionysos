@@ -35,7 +35,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MemberContorller {
 
-	String URL = "S:\\[SpringSTS4]\\Dionysos\\DataFiles";
+	String URL = Paths.get("").toAbsolutePath().toString() + "\\DataFiles";
 	private final MemberService memberService;
 	
 	@GetMapping("/api/channel/basic/{id}")

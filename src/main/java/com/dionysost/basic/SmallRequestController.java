@@ -1,5 +1,7 @@
 package com.dionysost.basic;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,7 +31,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/api")
 public class SmallRequestController {
 
-	String URL = "S:\\[SpringSTS4]\\Dionysos\\DataFiles";
+	String URL = Paths.get("").toAbsolutePath().toString() + "\\DataFiles";
 	
 	@GetMapping(
 			  value = "/chImg/{id}",

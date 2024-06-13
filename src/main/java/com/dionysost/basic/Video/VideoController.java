@@ -29,7 +29,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class VideoController {
 
-	String URL = "S:\\[SpringSTS4]\\Dionysos\\DataFiles";
+	String URL = Paths.get("").toAbsolutePath().toString() + "\\DataFiles";
 	private final VideoService videoService;
 	private final MemberService memberService;
 
